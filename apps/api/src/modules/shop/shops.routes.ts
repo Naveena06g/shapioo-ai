@@ -15,7 +15,6 @@ const createShopSchema = z.object({
   minOrder: z.number().nonnegative(),
 });
 
-// Public: Anyone can browse shops
 shopsRouter.get("/", asyncHandler(async (req, res) => {
   const query = req.query.q as string | undefined;
   res.json(await svc.listShops(query));
@@ -25,7 +24,6 @@ shopsRouter.get("/:id", asyncHandler(async (req, res) => {
   res.json(await svc.getShop(req.params.id as string));
 }));
 
-// Protected: Only users with the 'shop' role can create a shop
 shopsRouter.post("/", 
   requireAuth, 
   requireRole("shop"), 
