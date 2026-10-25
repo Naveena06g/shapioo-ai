@@ -38,7 +38,7 @@ export default function AdminDashboard() {
       <div className="mb-6 flex justify-between items-end">
         <div>
           <h2 className="text-3xl font-display mb-1">Platform Overview</h2>
-          <p className="text-mute text-sm">Monitor activity across SHOPIOO AI.</p>
+          <p className="text-mute text-sm">Monitor activity across SHOPPIOO AI.</p>
         </div>
         <button 
           onClick={() => setShowJobForm(!showJobForm)} 
@@ -73,7 +73,7 @@ export default function AdminDashboard() {
                 className="input-field" 
                 value={jobData.organization} 
                 onChange={e => setJobData({...jobData, organization: e.target.value})} 
-                placeholder="e.g. SHOPIOO Logistics" 
+                placeholder="e.g. SHOPPIOO Logistics" 
               />
             </div>
             <div>

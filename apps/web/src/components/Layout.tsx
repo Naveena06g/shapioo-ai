@@ -258,7 +258,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           to="/dashboard"
           className="mb-3 block whitespace-nowrap rounded-xl px-3 py-5 font-display text-2xl font-extrabold tracking-tight text-white transition-opacity hover:opacity-90"
         >
-          🌾 SHOPIOO AI
+          🌾 SHOPPIOO AI
         </Link>
 
         <nav aria-label="Main" className="flex-1 overflow-y-auto">
@@ -292,7 +292,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           </ul>
         </nav>
 
-        <div className="mt-auto px-3 pb-1 text-sm opacity-70">SHOPIOO AI · Live Platform</div>
+        <div className="mt-auto px-3 pb-1 text-sm opacity-70">SHOPPIOO AI · Live Platform</div>
       </aside>
 
       {/* ---------------- Main column (margin matches the sidebar width) ---------------- */}

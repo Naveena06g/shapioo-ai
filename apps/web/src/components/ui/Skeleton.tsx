@@ -51,12 +51,12 @@ export function CardGridSkeleton({ count = 6 }: { count?: number }) {
 /** Full-page skeleton used while the session is being checked. */
 export function PageSkeleton() {
   return (
-    <div className="min-h-screen bg-cream p-6 md:p-10" role="status" aria-label="Loading SHOPIOO">
+    <div className="min-h-screen bg-cream p-6 md:p-10" role="status" aria-label="Loading SHOPPIOO">
       <Skeleton className="h-9 w-64 mb-3" />
       <Skeleton className="h-4 w-80 max-w-full mb-8" />
       <KpiRowSkeleton />
       <CardGridSkeleton />
-      <span className="sr-only">Loading SHOPIOO…</span>
+      <span className="sr-only">Loading SHOPPIOO…</span>
     </div>
   );
 }

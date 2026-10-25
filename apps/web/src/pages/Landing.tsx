@@ -99,9 +99,9 @@ export default function Landing() {
         <Link
           to="/"
           className="font-display text-2xl font-extrabold text-forest transition-transform duration-200 hover:-translate-y-0.5 motion-reduce:hover:translate-y-0"
-          aria-label="SHOPIOO AI home"
+          aria-label="SHOPPIOO AI home"
         >
-          🌾 SHOPIOO AI
+          🌾 SHOPPIOO AI
         </Link>
         <nav className="flex gap-3" aria-label="Primary">
           <a href="#services" className="btn btn-l btn-sm hidden md:inline-flex">
@@ -144,7 +144,7 @@ export default function Landing() {
               id="hero-title"
               className="mb-8 max-w-5xl text-balance font-display text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl xl:text-7xl"
             >
-              <span className="block">SHOPIOO AI Food&nbsp;Security&nbsp;&amp;</span>
+              <span className="block">SHOPPIOO AI Food&nbsp;Security&nbsp;&amp;</span>
               <span className="block text-[#ffd17c]">Youth Employment Mission</span>
             </h1>
 
@@ -153,7 +153,7 @@ export default function Landing() {
                 <p className="mb-8 max-w-2xl text-base text-[#e2f2e6] sm:text-lg xl:text-xl">
                   A plan to strengthen food security in the face of potential Super El Niño
                   conditions, encourage responsible digital food savings, and create pathways to
-                  skills and self-employment through the SHOPIOO AI mobile app.
+                  skills and self-employment through the SHOPPIOO AI mobile app.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link to="/login" className="btn btn-s px-8 py-3 text-base sm:text-lg">
@@ -228,12 +228,12 @@ export default function Landing() {
                   <p className="max-w-xl text-[0.9375rem] leading-[1.55] text-ink">
                     Climate experts warn of a potential <strong>Super El Niño</strong> that could
                     disrupt monsoon patterns, reduce crop yields and push up food prices across
-                    India. SHOPIOO AI is designed as a proactive response: connecting local supply
+                    India. SHOPPIOO AI is designed as a proactive response: connecting local supply
                     chains, enabling digital food savings and helping families plan reliable access
                     to essential staples before shortages hit.
                   </p>
                   <p className="mt-4 max-w-xl text-[0.8125rem] leading-[1.5] text-mute">
-                    This is a planning scenario, not a forecast. SHOPIOO AI aims to improve
+                    This is a planning scenario, not a forecast. SHOPPIOO AI aims to improve
                     visibility and coordination; it does not prevent climate impacts.
                   </p>
                 </div>
@@ -275,7 +275,7 @@ export default function Landing() {
               <div className="relative z-10 mt-8 border-t border-[#8a5600]/20 pt-6">
                 <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
                   <h3 className="font-display text-xl font-bold text-forest">
-                    How SHOPIOO AI responds
+                    How SHOPPIOO AI responds
                   </h3>
                   <a
                     href="#services"
@@ -319,7 +319,7 @@ export default function Landing() {
               Six pillars. One connected mission.
             </h2>
             <p className="max-w-2xl text-mute">
-              Explore how SHOPIOO AI is designed to connect agricultural supply, neighbourhood
+              Explore how SHOPPIOO AI is designed to connect agricultural supply, neighbourhood
               retail, household food planning, voluntary savings and youth livelihoods.
             </p>
           </Reveal>
@@ -388,7 +388,7 @@ export default function Landing() {
         {/* ============================ FOOTER ============================ */}
         <Reveal>
           <footer className="mt-16 flex flex-wrap justify-between gap-4 border-t border-line pt-6 text-sm text-mute">
-            <span>🌾 SHOPIOO AI · Food Security &amp; Youth Employment Mission</span>
+            <span>🌾 SHOPPIOO AI · Food Security &amp; Youth Employment Mission</span>
             <span>Concept and demo experience · Not a live government or financial service</span>
           </footer>
         </Reveal>

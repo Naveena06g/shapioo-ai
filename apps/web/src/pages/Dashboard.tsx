@@ -355,7 +355,7 @@ export default function Dashboard() {
               </span>
               <div className="relative z-10">
                 <span className="mb-3 inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-bold tracking-wider">
-                  🌱 SHOPIOO AI MISSION
+                  🌱 SHOPPIOO AI MISSION
                 </span>
                 <h3 className="mb-2 font-display text-2xl leading-tight md:text-3xl">
                   Better food access.

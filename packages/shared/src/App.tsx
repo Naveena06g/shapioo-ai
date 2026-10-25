@@ -11,7 +11,7 @@ function Dashboard() {
   return (
     <div className="min-h-screen bg-cream">
       <nav className="bg-forest text-white p-4 flex justify-between items-center">
-        <h1 className="text-2xl">🌾 SHOPIOO AI</h1>
+        <h1 className="text-2xl">🌾 SHOPPIOO AI</h1>
         <button onClick={logout} className="text-sm bg-white/10 px-4 py-2 rounded-full hover:bg-white/20">
           Sign Out
         </button>
@@ -28,7 +28,7 @@ function Dashboard() {
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
-  if (loading) return <div className="p-10 text-center text-mute">Loading SHOPIOO...</div>;
+  if (loading) return <div className="p-10 text-center text-mute">Loading SHOPPIOO...</div>;
   if (!user) return <Navigate to="/login" replace />;
   return <>{children}</>;
 }

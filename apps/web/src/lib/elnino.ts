@@ -28,7 +28,7 @@ export const EFFECT_CHAIN: Step[] = [
   { icon: ShoppingBasket, title: "Household food stress", desc: "Families feel it first in the monthly grocery bill." },
 ];
 
-/** How SHOPIOO AI is designed to respond. */
+/** How SHOPPIOO AI is designed to respond. */
 export const RESPONSES: Step[] = [
   { icon: Handshake, title: "Connect the supply", desc: "Farmers list crops and storage so buyers and shops can find supply early." },
   { icon: PiggyBank, title: "Save for food", desc: "Optional, consented savings set aside a small amount from purchases." },
