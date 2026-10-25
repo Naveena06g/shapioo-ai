@@ -1,0 +1,238 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  phone        String   @unique
+  passwordHash String
+  role         String   @default("customer")
+  active       Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  shop            Shop?
+  cartItems       CartItem[]
+  orders          Order[]
+  crops           CropListing[]
+  offersSent      Offer[]
+  jobApplications JobApplication[]
+  verification    VerificationRequest?
+  storageBookings StorageBooking[]
+  enrollments     CourseEnrollment[]
+
+  @@index([role])
+}
+
+model Shop {
+  id          String   @id @default(cuid())
+  ownerId     String   @unique
+  name        String
+  type        String
+  area        String
+  deliveryFee Decimal  @default(0)
+  minOrder    Decimal  @default(0)
+  verified    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  owner       User         @relation(fields: [ownerId], references: [id])
+  products    Product[]
+  orderGroups OrderGroup[]
+}
+
+model Product {
+  id        String   @id @default(cuid())
+  shopId    String
+  name      String
+  category  String
+  price     Decimal
+  unit      String
+  stock     Int
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  shop       Shop        @relation(fields: [shopId], references: [id], onDelete: Cascade)
+  cartItems  CartItem[]
+  orderItems OrderItem[]
+
+  @@index([shopId, active])
+}
+
+model CartItem {
+  id        String   @id @default(cuid())
+  userId    String
+  productId String
+  qty       Int
+  createdAt DateTime @default(now())
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, productId])
+}
+
+model Order {
+  id        String   @id @default(cuid())
+  userId    String
+  total     Decimal
+  createdAt DateTime @default(now())
+
+  user   User         @relation(fields: [userId], references: [id])
+  groups OrderGroup[]
+}
+
+model OrderGroup {
+  id       String  @id @default(cuid())
+  orderId  String
+  shopId   String
+  status   String  @default("pending")
+  subtotal Decimal
+  delivery Decimal
+
+  order Order       @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  shop  Shop        @relation(fields: [shopId], references: [id])
+  items OrderItem[]
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  groupId   String
+  productId String
+  name      String
+  price     Decimal
+  qty       Int
+
+  group   OrderGroup @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  product Product    @relation(fields: [productId], references: [id])
+}
+
+model CropListing {
+  id          String   @id @default(cuid())
+  farmerId    String
+  name        String
+  variety     String
+  qty         Decimal
+  unit        String   @default("kg")
+  price       Decimal
+  moq         Decimal
+  grade       String
+  location    String
+  harvestDate DateTime
+  imageUrl    String? // <--- ADD THIS LINE
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  farmer User    @relation(fields: [farmerId], references: [id])
+  offers Offer[]
+
+  @@index([active, name])
+}
+
+model Offer {
+  id        String   @id @default(cuid())
+  cropId    String
+  traderId  String
+  qty       Decimal
+  price     Decimal
+  status    String   @default("pending") // pending, accepted, rejected
+  createdAt DateTime @default(now())
+
+  crop   CropListing @relation(fields: [cropId], references: [id], onDelete: Cascade)
+  trader User        @relation(fields: [traderId], references: [id])
+}
+
+model Job {
+  id           String   @id @default(cuid())
+  title        String
+  organization String
+  location     String
+  type         String // Full-time, Part-time, Contract
+  category     String // Shops, Logistics, Support, etc.
+  createdAt    DateTime @default(now())
+
+  applications JobApplication[]
+}
+
+model JobApplication {
+  id        String   @id @default(cuid())
+  jobId     String
+  userId    String
+  status    String   @default("applied")
+  createdAt DateTime @default(now())
+
+  job  Job  @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationRequest {
+  id        String   @id @default(cuid())
+  userId    String   @unique // <--- ADD @unique HERE
+  status    String   @default("pending") // pending, approved, rejected
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Warehouse {
+  id       String           @id @default(cuid())
+  name     String
+  location String
+  capacity Decimal
+  used     Decimal          @default(0)
+  price    Decimal
+  type     String
+  bookings StorageBooking[]
+}
+
+model StorageBooking {
+  id          String   @id @default(cuid())
+  warehouseId String
+  farmerId    String
+  cropName    String
+  qty         Decimal
+  months      Int
+  startDate   DateTime
+  status      String   @default("confirmed")
+  createdAt   DateTime @default(now())
+
+  warehouse Warehouse @relation(fields: [warehouseId], references: [id], onDelete: Cascade)
+  farmer    User      @relation(fields: [farmerId], references: [id])
+}
+
+model Course {
+  id          String             @id @default(cuid())
+  title       String
+  icon        String
+  modules     Int
+  enrollments CourseEnrollment[]
+}
+
+model CourseEnrollment {
+  id        String   @id @default(cuid())
+  userId    String
+  courseId  String
+  createdAt DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, courseId])
+}
+
+model BulkOrder {
+  id        String   @id @default(cuid())
+  cropName  String
+  qty       Decimal
+  price     Decimal
+  status    String   @default("confirmed")
+  traderId  String
+  farmerId  String
+  createdAt DateTime @default(now())
+}
