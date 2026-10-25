@@ -37,7 +37,7 @@ export default function AdminPostJob() {
             </div>
             <div>
               <label className="block text-sm font-bold mb-1">Organization</label>
-              <input required type="text" className="input-field" value={jobData.organization} onChange={e => setJobData({...jobData, organization: e.target.value})} placeholder="e.g. SHAPIOO Logistics" />
+              <input required type="text" className="input-field" value={jobData.organization} onChange={e => setJobData({...jobData, organization: e.target.value})} placeholder="e.g. SHOPIOO Logistics" />
             </div>
             <div>
               <label className="block text-sm font-bold mb-1">Location</label>

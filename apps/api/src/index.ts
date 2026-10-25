@@ -68,5 +68,5 @@ app.use(notFound);
 app.use(errorHandler);
 
 app.listen(env.API_PORT, () => {
-  console.log(`🌾 SHAPIOO API on http://localhost:${env.API_PORT} (${env.NODE_ENV})`);
+  console.log(`🌾 SHOPIOO API on http://localhost:${env.API_PORT} (${env.NODE_ENV})`);
 });

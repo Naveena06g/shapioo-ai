@@ -1,46 +1,3 @@
-// import { useQuery } from "@tanstack/react-query";
-// import { apiRequest } from "../lib/api";
-// import Layout from "../components/Layout";
-// import { Users, Store, Sprout, ShoppingCart } from "lucide-react";
-
-// export default function AdminDashboard() {
-//   const { data: stats, isLoading } = useQuery({
-//     queryKey: ["admin-stats"],
-//     queryFn: () => apiRequest<any>("/admin/stats"),
-//   });
-
-//   return (
-//     <Layout>
-//       <div className="mb-6">
-//         <h2 className="text-3xl font-display mb-1">Platform Overview</h2>
-//         <p className="text-mute text-sm">Monitor activity across SHAPIOO AI.</p>
-//       </div>
-
-//       {isLoading ? (
-//         <div className="text-center py-10 text-mute">Loading stats...</div>
-//       ) : (
-//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-//           <div className="kpi flex items-center gap-4">
-//             <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center"><Users size={24}/></div>
-//             <div><span className="text-sm font-bold text-mute">Total Users</span><b className="text-2xl block">{stats.users}</b></div>
-//           </div>
-//           <div className="kpi flex items-center gap-4">
-//             <div className="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center"><Store size={24}/></div>
-//             <div><span className="text-sm font-bold text-mute">Active Shops</span><b className="text-2xl block">{stats.shops}</b></div>
-//           </div>
-//           <div className="kpi flex items-center gap-4">
-//             <div className="w-12 h-12 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center"><Sprout size={24}/></div>
-//             <div><span className="text-sm font-bold text-mute">Crop Listings</span><b className="text-2xl block">{stats.crops}</b></div>
-//           </div>
-//           <div className="kpi flex items-center gap-4">
-//             <div className="w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center"><ShoppingCart size={24}/></div>
-//             <div><span className="text-sm font-bold text-mute">Total Orders</span><b className="text-2xl block">{stats.orders}</b></div>
-//           </div>
-//         </div>
-//       )}
-//     </Layout>
-//   );
-// }
 
 import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
@@ -81,7 +38,7 @@ export default function AdminDashboard() {
       <div className="mb-6 flex justify-between items-end">
         <div>
           <h2 className="text-3xl font-display mb-1">Platform Overview</h2>
-          <p className="text-mute text-sm">Monitor activity across SHAPIOO AI.</p>
+          <p className="text-mute text-sm">Monitor activity across SHOPIOO AI.</p>
         </div>
         <button 
           onClick={() => setShowJobForm(!showJobForm)} 
@@ -116,7 +73,7 @@ export default function AdminDashboard() {
                 className="input-field" 
                 value={jobData.organization} 
                 onChange={e => setJobData({...jobData, organization: e.target.value})} 
-                placeholder="e.g. SHAPIOO Logistics" 
+                placeholder="e.g. SHOPIOO Logistics" 
               />
             </div>
             <div>

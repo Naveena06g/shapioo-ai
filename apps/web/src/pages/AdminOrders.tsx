@@ -13,7 +13,7 @@ export default function AdminOrders() {
     <Layout>
       <div className="mb-6">
         <h2 className="text-3xl font-display mb-1">Platform Orders</h2>
-        <p className="text-mute text-sm">Monitor all transactions across SHAPIOO AI.</p>
+        <p className="text-mute text-sm">Monitor all transactions across SHOPIOO AI.</p>
       </div>
 
       <div className="card overflow-hidden p-0">

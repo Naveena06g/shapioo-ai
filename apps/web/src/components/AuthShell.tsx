@@ -20,7 +20,7 @@ const defaultBrand = (
   <>
     {/* Not an h1: the page's single h1 is the form title on the right */}
     <p className="font-display text-[2.25rem] font-extrabold leading-[1.05] tracking-[-0.02em] text-white md:text-[2.75rem]">
-      SHAPIOO <span className="text-saffron">AI</span>
+      SHOPIOO <span className="text-saffron">AI</span>
     </p>
     <p className="mt-4 max-w-md text-[0.9375rem] leading-[1.55] text-sage">
       Better markets for farmers. Affordable food for every family. Employment
@@ -78,9 +78,9 @@ export default function AuthShell({
           <Link
             to="/"
             className="mb-8 inline-flex min-h-11 items-center font-display text-[1.25rem] font-bold leading-[1.2] text-forest md:hidden"
-            aria-label="SHAPIOO AI home"
+            aria-label="SHOPIOO AI home"
           >
-            SHAPIOO <span className="ml-1 text-leaf2">AI</span>
+            SHOPIOO <span className="ml-1 text-leaf2">AI</span>
           </Link>
 
           <div className="mb-8">
