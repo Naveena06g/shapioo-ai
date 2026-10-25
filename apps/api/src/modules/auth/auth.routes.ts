@@ -9,13 +9,13 @@ export const authRouter = Router();
 
 authRouter.post("/register", validateBody(registerSchema), asyncHandler(async (req, res) => {
   const user = await svc.register(req.body);
-  req.session.user = { id: user.id, name: user.name, role: user.role };
+  req.session.user = { id: user.id, name: user.name, role: user.role as any };
   res.status(201).json(user);
 }));
 
 authRouter.post("/login", validateBody(loginSchema), asyncHandler(async (req, res) => {
   const user = await svc.login(req.body);
-  req.session.user = { id: user.id, name: user.name, role: user.role };
+req.session.user = { id: user.id, name: user.name, role: user.role as any };
   res.json(user);
 }));
 

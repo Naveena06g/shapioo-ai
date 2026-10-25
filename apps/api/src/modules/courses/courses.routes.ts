@@ -37,7 +37,7 @@ coursesRouter.post("/:id/enroll", requireAuth, requireRole("seeker"), asyncHandl
   const enrollment = await prisma.courseEnrollment.create({
     data: {
       userId: req.session.user!.id,
-      courseId: req.params.id
+     courseId: req.params.id as string
     }
   });
   res.status(201).json(enrollment);

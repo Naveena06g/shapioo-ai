@@ -23,5 +23,5 @@ const bookSchema = z.object({
 });
 
 warehousesRouter.post("/:id/book", requireAuth, requireRole("farmer", "trader"), validateBody(bookSchema), asyncHandler(async (req, res) => {
-  res.status(201).json(await svc.createBooking(req.session.user!.id, req.params.id, req.body));
+  res.status(201).json(await svc.createBooking(req.session.user!.id, req.params.id as string, req.body));
 }));

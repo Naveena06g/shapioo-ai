@@ -24,5 +24,5 @@ adminRouter.get("/verifications", asyncHandler(async (req, res) => {
 }));
 
 adminRouter.post("/verifications/:userId/approve", asyncHandler(async (req, res) => {
-  res.json(await approveVerification(req.params.userId));
+  res.json(await approveVerification(req.params.userId as string));
 }));

@@ -13,7 +13,7 @@ jobsRouter.get("/", asyncHandler(async (req, res) => {
 }));
 
 jobsRouter.post("/:id/apply", requireAuth, requireRole("seeker"), asyncHandler(async (req, res) => {
-  res.status(201).json(await svc.applyForJob(req.session.user!.id, req.params.id));
+  res.status(201).json(await svc.applyForJob(req.session.user!.id, req.params.id as string));
 }));
 
 jobsRouter.get("/mine", requireAuth, requireRole("seeker"), asyncHandler(async (req, res) => {

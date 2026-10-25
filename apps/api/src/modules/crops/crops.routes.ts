@@ -33,5 +33,5 @@ cropsRouter.post("/", requireAuth, requireRole("farmer"), validateBody(cropSchem
 }));
 
 cropsRouter.patch("/:id/toggle", requireAuth, requireRole("farmer"), asyncHandler(async (req, res) => {
-  res.json(await svc.toggleCropStatus(req.session.user!.id, req.params.id));
+  res.json(await svc.toggleCropStatus(req.session.user!.id, req.params.id as string));
 }));

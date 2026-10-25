@@ -26,11 +26,11 @@ productsRouter.post("/", validateBody(productSchema), asyncHandler(async (req, r
 }));
 
 productsRouter.patch("/:id", validateBody(updateSchema), asyncHandler(async (req, res) => {
-  const product = await svc.updateProduct(req.session.user!.id, req.params.id, req.body);
+  const product = await svc.updateProduct(req.session.user!.id, req.params.id as string, req.body);
   res.json(product);
 }));
 
 productsRouter.delete("/:id", asyncHandler(async (req, res) => {
-  await svc.deleteProduct(req.session.user!.id, req.params.id);
+await svc.deleteProduct(req.session.user!.id, req.params.id as string);
   res.status(204).end();
 }));

@@ -19,7 +19,7 @@ export async function placeOrder(userId: string) {
 
   return prisma.$transaction(async (tx) => {
     let grandTotal = 0;
-    const orderGroups = [];
+   const orderGroups: any[] = [];
 
     for (const [shopId, items] of Object.entries(byShop)) {
       const shop = items[0].product.shop;
