@@ -201,6 +201,7 @@ const roles = [
   { value: "farmer", label: "Farmer", desc: "Sell directly to buyers" },
   { value: "trader", label: "Trader", desc: "Trade in bulk" },
   { value: "seeker", label: "Job Seeker", desc: "Find work nearby" },
+  { value: "admin", label: "Admin", desc: "Manage the platform" },
 ] as const;
 
 export function RolePicker({

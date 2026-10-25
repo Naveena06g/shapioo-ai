@@ -11,27 +11,27 @@ export interface ImageAsset {
 export const IMAGES = {
   pillars: {
     farmersMarket: {
-      src: "/images/pillar-farmers-market.jpg",
+      src: "/images/WhatsApp Image 2026-10-25 at 23.21.01.jpeg",
       alt: "A farmer arranging fresh vegetables at a market stall",
     },
     localShops: {
-      src: "/images/pillar-local-shops.jpg",
+      src: "/images/WhatsApp Image 2026-10-25 at 23.24.19.jpeg",
       alt: "A shopkeeper at the counter of a neighbourhood kirana store",
     },
     foodSecurity: {
-      src: "/images/pillar-food-security.jpg",
+      src: "/images/WhatsApp Image 2026-10-25 at 23.28.26.jpeg",
       alt: "A family unpacking groceries together at home",
     },
     foodSavings: {
-      src: "/images/pillar-food-savings.jpg",
+      src: "/images/WhatsApp Image 2026-10-25 at 23.31.25.jpeg",
       alt: "A savings jar and a phone showing a small saved amount",
     },
     skills: {
-      src: "/images/pillar-skills.jpg",
+      src: "/images/WhatsApp Image 2026-10-25 at 23.45.11.jpeg",
       alt: "Young people learning together in a computer training class",
     },
     jobs: {
-      src: "/images/pillar-jobs.jpg",
+      src: "/images/WhatsApp Image 2026-10-25 at 23.47.38.jpeg",
       alt: "A young worker using a tablet to manage stock in a shop",
     },
   },

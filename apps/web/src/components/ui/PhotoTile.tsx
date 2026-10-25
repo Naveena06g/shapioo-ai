@@ -8,13 +8,23 @@ interface PhotoTileProps {
   fallback: string;
   width?: number;
   height?: number;
+  /**
+   * Tailwind aspect class for the frame. Default is 16:10 (landing cards).
+   * Pass "" together with a fixed height in `className` (for example "h-40")
+   * for dashboard tiles.
+   */
+  ratio?: string;
   className?: string;
 }
 
 /**
- * Photo header for cards. Reserves its space up front (no layout shift),
- * shows a sage placeholder while loading, lazy-loads, zooms 1.06 when the
- * parent `.group` is hovered, and falls back to the emoji on any error.
+ * Photo header for cards. Every photo is cropped into the same fixed frame,
+ * whatever its original shape (portrait, square or wide).
+ *
+ * The <img> is absolutely positioned inside the frame, so it can never push
+ * the frame taller; only the frame's size sets the height.
+ * Placeholder is sage while loading; lazy-loads; zooms 1.06 when the parent
+ * `.group` is hovered; falls back to the emoji on any error.
  */
 export default function PhotoTile({
   src,
@@ -22,13 +32,14 @@ export default function PhotoTile({
   fallback,
   width = 640,
   height = 480,
+  ratio = "aspect-[16/10]",
   className = "",
 }: PhotoTileProps) {
   const [failed, setFailed] = useState(false);
 
   return (
     <div
-      className={`relative aspect-[16/10] overflow-hidden rounded-[14px] bg-sage ${className}`}
+      className={`relative w-full shrink-0 overflow-hidden rounded-[14px] bg-sage ${ratio} ${className}`}
       {...(failed ? { role: "img", "aria-label": alt } : {})}
     >
       {failed ? (
@@ -47,7 +58,7 @@ export default function PhotoTile({
           loading="lazy"
           decoding="async"
           onError={() => setFailed(true)}
-          className="h-full w-full object-cover transition-transform duration-500 ease-rise group-hover:scale-[1.06] motion-reduce:transform-none"
+          className="absolute inset-0 h-full w-full max-w-none object-cover object-center transition-transform duration-500 ease-rise group-hover:scale-[1.06] motion-reduce:transform-none"
         />
       )}
     </div>
